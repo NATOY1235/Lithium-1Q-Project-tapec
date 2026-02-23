@@ -1,10 +1,7 @@
-
 let words = ["apple", "bread", "chair", "planet", "computer"];
-
 
 let currentWord = "";
 let score = 0;
-
 
 let scrambledWord = document.getElementById("scrambledWord");
 let userInput = document.getElementById("userInput");
@@ -13,7 +10,6 @@ let scoreDisplay = document.getElementById("score");
 
 let startBtn = document.getElementById("startBtn");
 let submitBtn = document.getElementById("submitBtn");
-
 
 function shuffle(word) {
     return word.split("").sort(() => Math.random() - 0.5).join("");
@@ -43,6 +39,12 @@ function checkAnswer() {
         score++;
         scoreDisplay.textContent = score;
         result.textContent = "Correct!";
+
+        
+        setTimeout(function() {
+            newWord();
+        }, 1000); 
+
     } else {
         result.textContent = "Wrong! Try again.";
     }
